@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const skills = [
@@ -15,11 +15,103 @@ const skills = [
 ];
 
 const technologies = [
-  'React', 'Angular', 'WebRTC', 'Agora', 'Jira', 
-  'Notion', 'Git', 'JavaScript', 'TypeScript', 'HTML', 
-  'CSS', 'Python', 'C++', 'RESTful APIs', 'Redux',
-  'Bootstrap', 'Responsive Design', 'UI/UX', 'Streamlit', 'Pandas'
+  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+  { 
+    name: 'WebRTC', 
+    icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDI4OGQxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDJhMTAgMTAgMCAwIDEgMTAgMTBjMCA1LjUyLTQuNDggMTAtMTAgMTBzLTEwLTQuNDgtMTAtMTBjMC01LjUyIDQuNDgtMTAgMTAtMTB6Ij48L3BhdGg+PHBhdGggZD0iTTggMTJoOCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiA4djgiPjwvcGF0aD48cGF0aCBkPSJNOCA4bDggOCI+PC9wYXRoPjxwYXRoIGQ9Ik0xNiA4bC04IDgiPjwvcGF0aD48L3N2Zz4=' 
+  },
+  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+  { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+  { name: 'Redux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg' },
+  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+  { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+  { name: 'Tailwind', icon: 'https://www.svgrepo.com/show/374118/tailwind.svg' },
+  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+  { name: 'Next.js', icon: 'https://www.svgrepo.com/show/354113/nextjs-icon.svg' },
+  { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+  { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+  { name: 'Jira', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg' },
+  { name: 'Notion', icon: 'https://img.icons8.com/color/48/000000/notion--v1.png' },
 ];
+
+// Simple array for the grid display
+const techNames = technologies.map(tech => tech.name);
+
+// 3D Card component for technology cards
+const TechCard = ({ tech, index }: { tech: { name: string; icon: string }; index: number }) => {
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const [scale, setScale] = useState(1);
+  
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; // x position within the element
+    const y = e.clientY - rect.top; // y position within the element
+    
+    // Calculate rotation based on mouse position
+    // We divide by 10 to reduce the effect for subtlety
+    const rotateY = ((x - rect.width / 2) / rect.width) * 20;
+    const rotateX = ((rect.height / 2 - y) / rect.height) * 20;
+    
+    setRotateX(rotateX);
+    setRotateY(rotateY);
+    setScale(1.05);
+  };
+  
+  const handleMouseLeave = () => {
+    // Reset rotation when mouse leaves
+    setRotateX(0);
+    setRotateY(0);
+    setScale(1);
+  };
+  
+  return (
+    <motion.div
+      key={index}
+      className="flex-shrink-0 px-6 py-4 mx-2 bg-gradient-to-br from-secondary/40 to-secondary/10 backdrop-blur-md rounded-xl text-text-primary font-medium hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer shadow-md group perspective-[1000px]"
+      style={{ 
+        minWidth: '180px',
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`,
+        transformStyle: 'preserve-3d',
+        transition: 'transform 0.2s ease-out, box-shadow 0.3s ease-out'
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div 
+        className="flex items-center justify-center flex-col"
+        style={{ 
+          transform: 'translateZ(20px)',
+          transformStyle: 'preserve-3d'
+        }}
+      >
+        <div 
+          className="w-12 h-12 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+          style={{ transform: 'translateZ(30px)' }}
+        >
+          <img 
+            src={tech.icon} 
+            alt={tech.name} 
+            className="w-10 h-10 object-contain filter group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+          />
+        </div>
+        <span 
+          className="text-center group-hover:text-blue-400 transition-colors duration-300"
+          style={{ transform: 'translateZ(25px)' }}
+        >
+          {tech.name}
+        </span>
+      </div>
+    </motion.div>
+  );
+};
 
 const Skills = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -116,7 +208,7 @@ const Skills = () => {
               animate={isInView ? "visible" : "hidden"}
             >
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {technologies.map((tech) => (
+                {techNames.map((tech) => (
                   <motion.div
                     key={tech}
                     variants={itemVariants}
@@ -130,57 +222,55 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Sliding marquee of skills */}
-        <div className="mt-28 overflow-hidden">
-          <motion.div
-            className="flex space-x-24 py-16"
-            animate={{
-              x: [0, -1000],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear",
-              },
-            }}
-          >
-            {[...technologies, ...technologies].map((tech, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 px-10 py-6 mx-2 bg-secondary/30 backdrop-blur-sm rounded-xl border border-accent/20 text-text-primary font-medium hover:bg-secondary/50 hover:border-primary/30 hover:scale-110 hover:rotate-2 transition-all duration-300 cursor-pointer shadow-lg"
-              >
-                {tech}
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        <div className="mt-12 overflow-hidden">
-          <motion.div
-            className="flex space-x-24 py-16"
-            animate={{
-              x: [-1000, 0],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear",
-              },
-            }}
-          >
-            {[...technologies, ...technologies].map((tech, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 px-10 py-6 mx-2 bg-secondary/30 backdrop-blur-sm rounded-xl border border-accent/20 text-text-primary font-medium hover:bg-secondary/50 hover:border-primary/30 hover:scale-110 hover:-rotate-2 transition-all duration-300 cursor-pointer shadow-lg"
-              >
-                {tech}
-              </div>
-            ))}
-          </motion.div>
+        {/* Enhanced Marquee Section with 3D Effects */}
+        <div className="mt-28 relative">
+          {/* Gradient fades on the sides */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
+          
+          {/* First marquee - left to right */}
+          <div className="overflow-hidden py-8 relative">
+            <motion.div
+              className="flex space-x-8"
+              animate={{
+                x: [-3000, 0],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 40,
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...technologies, ...technologies].map((tech, index) => (
+                <TechCard key={index} tech={tech} index={index} />
+              ))}
+            </motion.div>
+          </div>
+          
+          {/* Second marquee - right to left */}
+          <div className="overflow-hidden py-8 relative mt-4">
+            <motion.div
+              className="flex space-x-8"
+              animate={{
+                x: [0, -3000],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 40,
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...technologies, ...technologies].map((tech, index) => (
+                <TechCard key={index} tech={tech} index={index} />
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

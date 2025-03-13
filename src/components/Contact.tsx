@@ -86,7 +86,7 @@ const Contact = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-24"
         >
-          <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 bg-primary/10 padd-bottom rounded-full text-primary text-sm font-medium mb-4">
             Get In Touch
           </span>
           <motion.h2 
@@ -97,27 +97,27 @@ const Contact = () => {
           >
             Let&apos;s <span className="text-blue-500">Connect</span>
           </motion.h2>
-          <p className="text-text-secondary max-w-2xl mx-auto text-lg">
+          <p className="inline-block text-text-secondary padd-bottom max-w-2xl mx-auto text-lg">
             Have a project in mind or just want to say hello? Feel free to reach out!
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-start">
+        <div className="max-w-6xl mx-auto padd-top">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-stretch">
             {/* Contact Info - Left Side */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="lg:col-span-2 space-y-6 md:space-y-8"
+              className="lg:col-span-2 flex flex-col h-full"
             >
-              <motion.div variants={itemVariants} className="bg-secondary/10 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-accent/10 hover:border-primary/20 transition-all duration-300 group">
-                <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-500">Contact Information</h3>
-                <p className="text-text-secondary mb-6 md:mb-8 text-sm md:text-base">
-                  I&apos;m open to opportunities, collaborations, and interesting projects. Let&apos;s create something amazing together!
+              <motion.div variants={itemVariants} className="bg-secondary/10 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-accent/10 hover:border-primary/20 transition-all duration-300 group flex-1 flex flex-col">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-500 text-center">Contact Information</h3>
+                <p className="text-text-secondary mb-6 md:mb-8 text-sm md:text-base padd-left padd-right text-center">
+                  I&apos;m open to opportunities, collaborations, and interesting projects.
                 </p>
                 
-                <div className="space-y-8">
+                <div className="space-y-8 flex-grow">
                   <div className="flex items-center group">
                     <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mr-5 group-hover:bg-primary/20 transition-all duration-300">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -141,13 +141,13 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-text-secondary mb-2">Location</p>
-                      <p className="text-lg font-medium">Hyderabad, India</p>
+                      <p className="text-lg font-medium">Gurgaon, India</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-10 pt-8 border-t border-accent/10">
-                  <p className="text-sm text-text-secondary mb-4">Connect with me</p>
+                <div className="mt-auto pt-8 border-t border-accent/10">
+                  <p className="text-sm text-text-secondary mb-4 padd-left">Connect with me</p>
                   <div className="flex space-x-4">
                     <a 
                       href="https://github.com/hemantaryapanwar" 
@@ -156,7 +156,7 @@ const Contact = () => {
                       className="w-10 h-10 rounded-lg bg-secondary/30 flex items-center justify-center text-text-secondary hover:text-primary hover:bg-secondary/50 transition-all duration-300"
                       aria-label="GitHub"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                      <svg xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                       </svg>
                     </a>
@@ -193,7 +193,7 @@ const Contact = () => {
               variants={containerVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="lg:col-span-3 bg-secondary/10 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-accent/10 shadow-xl relative overflow-hidden group"
+              className="lg:col-span-3 bg-secondary/10 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-accent/10 shadow-xl relative overflow-hidden group flex flex-col h-full"
             >
               {/* Background gradient effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 z-0"></div>
@@ -203,8 +203,8 @@ const Contact = () => {
               <div className="absolute -top-20 -right-20 w-40 h-40 border border-primary/10 rounded-full z-0"></div>
               <div className="absolute -bottom-20 -left-20 w-40 h-40 border border-accent/10 rounded-full z-0"></div>
               
-              <div className="relative z-10">
-                <motion.h3 variants={itemVariants} className="text-xl md:text-2xl font-bold mb-6">
+              <div className="relative z-10 flex-1 flex flex-col">
+                <motion.h3 variants={itemVariants} className="text-xl md:text-2xl font-bold mb-6 text-center">
                   Send me a <span className="text-blue-500">message</span>
                 </motion.h3>
 
@@ -238,8 +238,8 @@ const Contact = () => {
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <form onSubmit={handleSubmit} className="space-y-8 flex-grow flex flex-col">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 padd-left padd-right">
                     <motion.div variants={itemVariants}>
                       <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-3">Your Name</label>
                       <div className="relative">
@@ -250,7 +250,7 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="John Doe"
-                          className="w-full px-5 py-5 bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
+                          className="w-full padd-left padd-right bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
                           required
                         />
                       </div>
@@ -266,7 +266,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="john@example.com"
-                          className="w-full px-5 py-5 bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
+                          className="w-full padd-left padd-right bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
                           required
                         />
                       </div>
@@ -274,8 +274,8 @@ const Contact = () => {
                   </div>
 
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="subject" className="block text-sm font-medium text-text-secondary mb-3">Subject</label>
-                    <div className="relative">
+                    <label htmlFor="subject" className="block text-sm font-medium text-text-secondary padd-left padd-right mb-3">Subject</label>
+                    <div className="relative padd-left padd-right">
                       <input
                         id="subject"
                         type="text"
@@ -283,15 +283,15 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="How can I help you?"
-                        className="w-full px-5 py-5 bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
+                        className="w-full padd-left padd-right bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
                         required
                       />
                     </div>
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-3">Message</label>
-                    <div className="relative">
+                    <label htmlFor="message" className="block text-sm font-medium text-text-secondary padd-left mb-3">Message</label>
+                    <div className="relative padd-left padd-right">
                       <textarea
                         id="message"
                         name="message"
@@ -299,7 +299,7 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="Your message here..."
                         rows={5}
-                        className="w-full px-5 py-5 bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none resize-none text-base"
+                        className="w-full padd-left padd-right bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none resize-none text-base"
                         required
                       ></textarea>
                     </div>

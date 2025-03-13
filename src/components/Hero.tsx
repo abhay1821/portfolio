@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
+import AnimatedBackground from './AnimatedBackground';
+import ParticleEffect from './ParticleEffect';
+import TypedText from './TypedText';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -61,14 +64,11 @@ const Hero = () => {
 
   return (
     <section id="home" className="section relative overflow-hidden" ref={heroRef}>
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary via-background to-background z-0"></div>
+      {/* 3D Animated background */}
+      <AnimatedBackground />
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-accent/5 blur-3xl"></div>
-      </div>
+      {/* Interactive particle effect */}
+      <ParticleEffect />
 
       <div className="container mx-auto relative z-10 flex flex-col justify-center items-start h-screen">
         <div ref={textRef} className="max-w-3xl">
@@ -85,7 +85,7 @@ const Hero = () => {
             className="text-5xl md:text-7xl font-bold mb-6 gsap-text relative"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 1, delay: 0.1 }}
           >
             {/* Animated particles background */}
             <div className="absolute inset-0 -m-4 overflow-hidden rounded-xl">
@@ -95,38 +95,54 @@ const Hero = () => {
             {/* Glowing border */}
             <div className="absolute inset-0 -m-1 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-sm"></div>
             
-            <span ref={nameRef} className="gradient-text relative z-10">Hemant Arya Panwar</span>
+            <span ref={nameRef} className="padd-bottom gradient-text relative z-10">Hemant Arya Panwar</span>
           </motion.h1>
           
           <motion.h2 
-            className="text-3xl md:text-4xl font-semibold mb-6 text-text-secondary gsap-text"
+            className="text-3xl md:text-4xl font-semibold mb-6 text-text-secondary gsap-text pb-4 padd-top"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 2, delay: 0.2 }}
           >
-            Software Developer Analyst
+            <TypedText 
+              strings={[
+                'Software Developer',
+                'Frontend Engineer',
+                'Problem Solver',
+                'AI/ML Enthusiast',
+                'Full Stack Developer'
+              ]}
+              className="text-blue-400"
+            />
           </motion.h2>
           
           <motion.p 
-            className="text-lg text-text-secondary mb-8 max-w-2xl gsap-text"
+            className="text-lg text-text-secondary padd-bottom mb-8 max-w-2xl gsap-text"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 2, delay: 0.3 }}
           >
-            B.Tech in Computer Science from Indian Institute Of Information Technology, Sonepat. Experienced in developing and maintaining user-facing features for web applications using React.js, Redux, and related libraries.
+            B.Tech in Computer Science from Indian Institute Of Information Technology, (IIIT) Sonepat. Experienced in development and proficient in Data Structures and Algorithms.
           </motion.p>
           
           <motion.div 
-            className="flex flex-wrap gap-4 gsap-text"
+            className="flex flex-wrap gap-4 gsap-text padd-top"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 3, delay: 0.4 }}
           >
-            <a href="#projects" className="btn btn-primary">
-              View My Work
+            <a href="#projects" className="btn btn-primary group relative overflow-hidden">
+              <span className="relative z-10 flex items-center">
+                View My Work
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
-            <a href="#contact" className="btn btn-outline">
-              Contact Me
+            <a href="#contact" className="btn btn-outline group relative overflow-hidden">
+              <span className="relative z-10">Contact Me</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
             </a>
           </motion.div>
         </div>
@@ -156,7 +172,7 @@ const Hero = () => {
               strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round" 
-              className="text-primary"
+              className="text-primary animate-bounce"
             >
               <path d="M12 5v14M5 12l7 7 7-7"/>
             </svg>

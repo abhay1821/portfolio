@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
+import { Margarine } from 'next/font/google';
 
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,19 +45,29 @@ const About = () => {
     },
   };
 
+  // Work experience data
+  const workExperiences = [
+    {
+      company: "Deloitte",
+      position: "Software Developer",
+      period: `Feb 2024 - Present`,
+      description: "Developing and maintaining user-facing features for web applications. Collaborating closely with UI/UX designers and backend developers to implement front-end solutions that meet business requirements and design specifications."
+    }
+  ];
+
   // Internship data
   const internships = [
     {
-      company: "XYZ Tech",
+      company: "ClarityCuts",
       position: "Software Engineering Intern",
-      period: "May 2020 - Aug 2020",
-      description: "Developed and maintained web applications using React.js and Node.js. Collaborated with the team to implement new features and fix bugs."
+      period: "July 2023 - Jan 2024",
+      description: "Developed and maintained web applications using java, Node.js, Express, React.js, MongoDB, AWS, and CI/CD deployment pipelines."
     },
     {
-      company: "ABC Solutions",
+      company: "Curer",
       position: "Frontend Development Intern",
-      period: "Dec 2019 - Feb 2020",
-      description: "Assisted in designing and implementing responsive user interfaces. Worked with HTML, CSS, and JavaScript to create interactive web pages."
+      period: "Jan 2022 - June 2022",
+      description: "Designed and integrated offline flows for doctor appointments using Rest API. Worked with Angular, Node.js, MongoDB, Agora, Firebase"
     }
   ];
 
@@ -124,65 +135,73 @@ const About = () => {
               </div>
               
               <div className="flex flex-col space-y-2">
-                <h3 className="text-xl font-semibold">Work Experience</h3>
-                <p className="text-text-secondary">
-                  Software Developer at <span className="text-blue-500 text-xl font-bold">Deloitte</span>
-                </p>
+                <h3 className="text-xl padd-bottom font-bold mb-4">Work Experience</h3>
+                <div className="space-y-12 mb-8">
+                  {workExperiences.map((work, index) => (
+                    <div 
+                      key={index}
+                      style={{
+                        padding: '16px',
+                        borderRadius: '16px',
+                        background: 'rgba(30, 64, 175, 0.15)',
+                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(59, 130, 246, 0.3)',
+                        backdropFilter: 'blur(10px)',
+                        border: 'none'
+                      }}
+                      className="transition-all duration-500 hover:translate-y-[-5px]"
+                    >
+                      <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-8">
+                        <h4 className="font-bold text-2xl mb-4 md:mb-0">
+                          <span className="font-bold text-2xl text-blue-500 mb-4 md:mb-0 ">{work.company}</span>
+                        </h4>
+                        <span className="inline-block text-white px-4 py-2 rounded-full text-sm font-medium">{work.period}</span>
+                      </div>
+                      <div className="bg-black/20 p-6 rounded-lg mb-6">
+                        <p className="text-lg font-semibold text-white mb-4">
+                          <span className="relative inline-block">
+                            {work.position}
+              
+                          </span>
+                        </p>
+                        <p className="text-gray-300">
+                          {work.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
-            
-            <motion.p variants={itemVariants} className="text-text-secondary mb-8 text-lg">
-              I&apos;m a Software Developer Analyst at Deloitte with experience in developing and maintaining user-facing features for web applications. I collaborate closely with UI/UX designers and backend developers to implement front-end solutions that meet business requirements and design specifications.
-            </motion.p>
-            
+
             {/* Internship Experience Section */}
             <motion.div variants={itemVariants} className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Internship Experience</h3>
-              <div className="p-4 md:p-6 space-y-8" >
+              <h3 className="text-xl font-bold padd-top">Internship Experience</h3>
+              <div className="space-y-12 ">
                 {internships.map((internship, index) => (
-                  <div key={index} className="p-6 md:p-8 rounded-xl bg-secondary/20 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 shadow-md">
-                    <div className="flex justify-between items-start mb-4">
-                      <h4 className="font-medium text-lg text-blue-500">{internship.company}</h4>
-                      <span className="text-xs bg-blue-500/20 text-blue-500 px-3 py-1 rounded-full">{internship.period}</span>
+                  <div 
+                    key={index} 
+                    style={{
+                      padding: '16px',
+                      borderRadius: '16px',
+                      background: 'rgba(30, 64, 175, 0.15)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(59, 130, 246, 0.3)',
+                      backdropFilter: 'blur(10px)',
+                      border: 'none',
+                      marginTop: '10px'
+                    }}
+                    className="transition-all duration-500 hover:translate-y-[-5px]"
+                  >
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-8">
+                      <h4 className="font-bold text-2xl text-blue-500 mb-4 md:mb-0">{internship.company}</h4>
+                      <span className="inline-block text-white px-4 py-2 rounded-full text-sm font-medium">{internship.period}</span>
                     </div>
-                    <p className="text-sm font-medium text-text-primary mb-3">{internship.position}</p>
-                    <p className="text-sm text-text-secondary">{internship.description}</p>
+                    <div className="bg-black/20 p-6 rounded-lg mb-6">
+                      <p className="text-lg font-semibold text-white mb-4">{internship.position}</p>
+                      <p className="text-gray-300">{internship.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
-            </motion.div>
-            
-            <motion.p variants={itemVariants} className="text-text-secondary mb-6 md:mb-8 text-sm md:text-base">
-              I&apos;m open to opportunities, collaborations, and interesting projects. Let&apos;s create something amazing together!
-            </motion.p>
-            
-            <motion.p variants={itemVariants} className="text-text-secondary mb-10 text-lg">
-              I graduated with a B.Tech in Computer Science from Indian Institute Of Information Technology, Sonepat (Roll No: 11911075). My experience includes integrating RESTful APIs, participating in Agile development processes, and working with various development tools and frameworks.
-            </motion.p>
-            
-            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-8 mb-12">
-              <div className="flex items-center p-4 rounded-xl bg-secondary/30 backdrop-blur-sm hover:bg-secondary/40 transition-colors duration-300">
-                <div className="w-4 h-4 rounded-full bg-primary mr-4"></div>
-                <span className="text-text-secondary text-lg font-medium">React & Redux</span>
-              </div>
-              <div className="flex items-center p-4 rounded-xl bg-secondary/30 backdrop-blur-sm hover:bg-secondary/40 transition-colors duration-300">
-                <div className="w-4 h-4 rounded-full bg-primary mr-4"></div>
-                <span className="text-text-secondary text-lg font-medium">JavaScript & TypeScript</span>
-              </div>
-              <div className="flex items-center p-4 rounded-xl bg-secondary/30 backdrop-blur-sm hover:bg-secondary/40 transition-colors duration-300">
-                <div className="w-4 h-4 rounded-full bg-primary mr-4"></div>
-                <span className="text-text-secondary text-lg font-medium">HTML & CSS</span>
-              </div>
-              <div className="flex items-center p-4 rounded-xl bg-secondary/30 backdrop-blur-sm hover:bg-secondary/40 transition-colors duration-300">
-                <div className="w-4 h-4 rounded-full bg-primary mr-4"></div>
-                <span className="text-text-secondary text-lg font-medium">RESTful APIs</span>
-              </div>
-            </motion.div>
-            
-            <motion.div variants={itemVariants}>
-              <a href="#contact" className="btn btn-primary px-8 py-3 text-lg">
-                Let&apos;s Talk
-              </a>
             </motion.div>
           </div>
         </motion.div>

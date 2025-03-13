@@ -186,3 +186,22 @@ a {
 .delay-500 {
   animation-delay: 0.5s;
 }
+.padd{
+  padding: 5px;
+}
+
+.padd-bottom{
+  padding-bottom: 10px;
+}
+
+.padd-top{
+  padding-top: 10px;
+}
+.padd-left{
+  padding-left: 10px !important;
+}
+.padd-right{
+  padding-right: 10px !important;
+} 
+
+

@@ -29,7 +29,9 @@ const Footer = () => {
                 Hemant Arya Panwar
               </Link>
               <p className="text-text-secondary mb-6 max-w-md">
-                Software Developer Analyst at Deloitte with expertise in React, Angular, and WebRTC. B.Tech in Computer Science from IIIT Sonepat.
+                Software Developer  at Deloitte 
+                <br />
+                Ambience Corporate Park, Gurgaon
               </p>
               <div className="flex space-x-4">
                 <a href="https://github.com/hemantaryapanwar" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-background/20 flex items-center justify-center text-text-secondary hover:text-primary transition-colors duration-300">
@@ -75,7 +77,7 @@ const Footer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <span>Hyderabad, India</span>
+                <span>Gurgaon, India</span>
               </li>
             </ul>
           </motion.div>
@@ -84,7 +86,7 @@ const Footer = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 2, delay: 0.5 }}
           className="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-text-secondary text-sm">

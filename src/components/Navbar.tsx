@@ -109,7 +109,7 @@ const Navbar = () => {
             className="btn btn-primary px-6 py-2.5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.5 }}
+            transition={{ duration: 2, delay: 0.5 }}
             download="HemantArya_Resume.pdf"
           >
             Resume
@@ -117,61 +117,7 @@ const Navbar = () => {
         </div>
       </motion.header>
 
-      {/* Floating Navigation */}
-      <AnimatePresence>
-        {showNav && (
-          <motion.div 
-            className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50"
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="bg-secondary/80 backdrop-blur-lg px-8 py-4 rounded-full border border-border shadow-lg">
-              <div className="flex items-center space-x-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="relative group"
-                  >
-                    <div className={`p-2.5 rounded-full transition-all duration-300 ${
-                      activeSection === link.href.substring(1) 
-                        ? 'text-primary' 
-                        : 'text-text-secondary hover:text-primary'
-                    }`}>
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className="h-6 w-6" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={link.icon} />
-                      </svg>
-                      
-                      {/* Active indicator */}
-                      {activeSection === link.href.substring(1) && (
-                        <motion.div 
-                          className="absolute -bottom-2 left-1/2 w-2 h-2 bg-primary rounded-full transform -translate-x-1/2"
-                          layoutId="activeSection"
-                        />
-                      )}
-                    </div>
-                    
-                    {/* Tooltip */}
-                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="bg-secondary/90 backdrop-blur-sm px-4 py-1.5 rounded-md text-sm font-medium whitespace-nowrap shadow-lg">
-                        {link.name}
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+     
 
       {/* Section Scroll Indicator */}
       <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
