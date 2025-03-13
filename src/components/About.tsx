@@ -138,14 +138,14 @@ const About = () => {
             {/* Internship Experience Section */}
             <motion.div variants={itemVariants} className="mb-8">
               <h3 className="text-xl font-semibold mb-4">Internship Experience</h3>
-              <div className="p-2 space-y-6" >
+              <div className="p-4 md:p-6 space-y-8" >
                 {internships.map((internship, index) => (
-                  <div key={index} className="p-2 rounded-xl bg-secondary/20 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300">
-                    <div className="flex justify-between items-start mb-2">
+                  <div key={index} className="p-6 md:p-8 rounded-xl bg-secondary/20 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 shadow-md">
+                    <div className="flex justify-between items-start mb-4">
                       <h4 className="font-medium text-lg text-blue-500">{internship.company}</h4>
                       <span className="text-xs bg-blue-500/20 text-blue-500 px-3 py-1 rounded-full">{internship.period}</span>
                     </div>
-                    <p className="text-sm font-medium text-text-primary mb-2">{internship.position}</p>
+                    <p className="text-sm font-medium text-text-primary mb-3">{internship.position}</p>
                     <p className="text-sm text-text-secondary">{internship.description}</p>
                   </div>
                 ))}
