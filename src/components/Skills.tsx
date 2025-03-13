@@ -115,15 +115,17 @@ const Skills = () => {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
-              {technologies.map((tech, index) => (
-                <motion.span
-                  key={tech}
-                  variants={itemVariants}
-                  className="px-4 md:px-5 py-2 md:py-3 bg-secondary rounded-full text-xs md:text-sm font-medium border border-border hover:border-primary transition-colors duration-300"
-                >
-                  {tech}
-                </motion.span>
-              ))}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {technologies.map((tech) => (
+                  <motion.div
+                    key={tech}
+                    variants={itemVariants}
+                    className="bg-secondary/30 backdrop-blur-sm px-4 py-3 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 text-center"
+                  >
+                    <span className="text-text-secondary">{tech}</span>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>

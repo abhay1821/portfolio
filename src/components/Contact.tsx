@@ -12,6 +12,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [submitError, setSubmitError] = useState('');
 
   const ref = useRef<HTMLDivElement>(null);
@@ -94,7 +95,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Let's <span className="text-blue-500">Connect</span>
+            Let&apos;s <span className="text-blue-500">Connect</span>
           </motion.h2>
           <p className="text-text-secondary max-w-2xl mx-auto text-lg">
             Have a project in mind or just want to say hello? Feel free to reach out!
@@ -113,7 +114,7 @@ const Contact = () => {
               <motion.div variants={itemVariants} className="bg-secondary/10 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-accent/10 hover:border-primary/20 transition-all duration-300 group">
                 <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-500">Contact Information</h3>
                 <p className="text-text-secondary mb-6 md:mb-8 text-sm md:text-base">
-                  I'm open to opportunities, collaborations, and interesting projects. Let's create something amazing together!
+                  I&apos;m open to opportunities, collaborations, and interesting projects. Let&apos;s create something amazing together!
                 </p>
                 
                 <div className="space-y-8">
@@ -219,7 +220,7 @@ const Contact = () => {
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <p>Thank you for your message! I'll get back to you soon.</p>
+                      <p>Thank you for your message! I&apos;ll get back to you soon.</p>
                     </div>
                   </motion.div>
                 )}

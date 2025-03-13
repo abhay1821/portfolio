@@ -132,7 +132,7 @@ const About = () => {
             </motion.div>
             
             <motion.p variants={itemVariants} className="text-text-secondary mb-8 text-lg">
-              I'm a Software Developer Analyst at Deloitte with experience in developing and maintaining user-facing features for web applications. I collaborate closely with UI/UX designers and backend developers to implement front-end solutions that meet business requirements and design specifications.
+              I&apos;m a Software Developer Analyst at Deloitte with experience in developing and maintaining user-facing features for web applications. I collaborate closely with UI/UX designers and backend developers to implement front-end solutions that meet business requirements and design specifications.
             </motion.p>
             
             {/* Internship Experience Section */}
@@ -151,6 +151,10 @@ const About = () => {
                 ))}
               </div>
             </motion.div>
+            
+            <motion.p variants={itemVariants} className="text-text-secondary mb-6 md:mb-8 text-sm md:text-base">
+              I&apos;m open to opportunities, collaborations, and interesting projects. Let&apos;s create something amazing together!
+            </motion.p>
             
             <motion.p variants={itemVariants} className="text-text-secondary mb-10 text-lg">
               I graduated with a B.Tech in Computer Science from Indian Institute Of Information Technology, Sonepat (Roll No: 11911075). My experience includes integrating RESTful APIs, participating in Agile development processes, and working with various development tools and frameworks.
@@ -177,7 +181,7 @@ const About = () => {
             
             <motion.div variants={itemVariants}>
               <a href="#contact" className="btn btn-primary px-8 py-3 text-lg">
-                Let's Talk
+                Let&apos;s Talk
               </a>
             </motion.div>
           </div>

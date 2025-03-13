@@ -78,7 +78,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Hello, I'm
+            Hello, I&apos;m
           </motion.p>
           
           <motion.h1 
