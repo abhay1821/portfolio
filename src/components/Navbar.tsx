@@ -105,13 +105,13 @@ const Navbar = () => {
 
           {/* Resume Button */}
           <motion.a
-            href="/documents/HemantArya_Resume.pdf"
+            href="https://drive.google.com/file/d/1QIgCpMCTXKKMyKBfEnDa8Kd0o824HeaO/view?usp=drive_link"
+            target="_blank"
             className="btn btn-primary px-6 py-2.5"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 2, delay: 0.5 }}
-            download="HemantArya_Resume.pdf"
-          >
+             >
             Resume
           </motion.a>
         </div>

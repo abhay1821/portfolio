@@ -31,7 +31,7 @@ const projects = [
     description: 'Creative Web Application for online meets with features like screen sharing and content sharing for better productivity.',
     tags: ['React', 'Node.js','Socket.io', 'WebRTC'],
     image: '/placeholder.jpg',
-    link: '#',
+    link: 'https://video-chat-app-ebon.vercel.app/',
     github: 'https://github.com/hemantaryapanwar/CONFRENZ',
     period: 'Aug. 2020 - Dec. 2020'
   }
