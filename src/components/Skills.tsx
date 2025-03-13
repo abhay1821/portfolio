@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 
 const skills = [
   { name: 'HTML/CSS', level: 90 },
@@ -37,7 +38,7 @@ const technologies = [
   { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
   { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   { name: 'Jira', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg' },
-  { name: 'Notion', icon: 'https://img.icons8.com/color/48/000000/notion--v1.png' },
+  { name: 'Notion', icon: '/images/Notion_icon.png' },
 ];
 
 // Simple array for the grid display
@@ -96,10 +97,12 @@ const TechCard = ({ tech, index }: { tech: { name: string; icon: string }; index
           className="w-12 h-12 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
           style={{ transform: 'translateZ(30px)' }}
         >
-          <img 
-            src={tech.icon} 
-            alt={tech.name} 
-            className="w-10 h-10 object-contain filter group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+          <Image
+            src={tech.icon}
+            alt={tech.name}
+            width={24}
+            height={24}
+            className="w-6 h-6 object-contain"
           />
         </div>
         <span 

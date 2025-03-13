@@ -37,8 +37,19 @@ const projects = [
   }
 ];
 
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  link: string;
+  github: string;
+  period: string;
+}
+
 // Project Card component with 3D effect
-const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -208,7 +219,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
 
 const Projects = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  useInView(ref, { once: true, margin: "-100px" });
   const [activeFilter, setActiveFilter] = useState('all');
   
   const filteredProjects = activeFilter === 'all' 

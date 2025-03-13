@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import { Margarine } from 'next/font/google';
 
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
