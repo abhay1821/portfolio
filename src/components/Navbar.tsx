@@ -105,7 +105,7 @@ const Navbar = () => {
 
           {/* Resume Button */}
           <motion.a
-            href="https://drive.google.com/file/d/1ZcRRU-p6nECkFEN7lKKD1c_40Dn1ImzO/view?usp=sharing"
+            href="https://drive.google.com/file/d/1FEO65KloyQzd_X1Br_GfEA7jYwOKIrfT/view?usp=drive_link"
             target="_blank"
             className="btn btn-primary px-6 py-2.5"
             initial={{ opacity: 0, scale: 0.8 }}
