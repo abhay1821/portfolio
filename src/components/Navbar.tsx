@@ -92,28 +92,39 @@ const Navbar = () => {
           style={{ scaleX }}
         />
         
-        <div className="container mx-auto px-4 py-5 flex justify-between items-center">
+        <div className="container mx-auto px-6 py-10 flex justify-between items-center" style={{ minHeight: '60px' }}>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
+            className="flex items-center"
           >
             <Link href="#home" className="text-2xl font-bold name-gradient">
-              Hemant Arya
+              Abhay Chaudhary
             </Link>
           </motion.div>
 
           {/* Resume Button */}
-          <motion.a
-            href="https://drive.google.com/file/d/1FEO65KloyQzd_X1Br_GfEA7jYwOKIrfT/view?usp=drive_link"
-            target="_blank"
-            className="btn btn-primary px-6 py-2.5"
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 2, delay: 0.5 }}
-             >
-            Resume
-          </motion.a>
+            className="flex items-center"
+            style={{ 
+              padding:"5px"
+            }}
+          >
+            <a
+              href="https://drive.google.com/file/d/1WIaRvEE11C4FWM6cEKhmQslAx98XRLei/view?usp=sharing"
+              target="_blank"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-10 py-4 hover:scale-105 transition-all duration-200 shadow-xl rounded-xl font-bold border-0 hover:from-blue-600 hover:to-blue-700 hover:shadow-2xl hover:shadow-blue-500/25 inline-block"
+              style={{ 
+                padding:"10px"
+              }}
+            >
+              Resume
+            </a>
+          </motion.div>
         </div>
       </motion.header>
 

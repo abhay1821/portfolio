@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Hemant Arya Panwar | Software Developer Analyst",
-  description: "Portfolio website of Hemant Arya Panwar, Software Developer Analyst at Deloitte with expertise in React, Angular, and WebRTC",
-  keywords: ["Hemant Arya Panwar", "Software Developer", "React", "Angular", "WebRTC", "Deloitte", "IIIT Sonepat"],
+  title: "Abhay Chaudhary | Software Developer",
+  description: "Portfolio website of Abhay Chaudhary, Software Developer Analyst at Infinitybox with expertise in React, Flutter, and Next.js",
+  keywords: ["Abhay Chaudhary", "Software Developer", "React", "Angular", "WebRTC", "Infinitybox", "IIIT Sonepat"],
 };
 
 export default function RootLayout({

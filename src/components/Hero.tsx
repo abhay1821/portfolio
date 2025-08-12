@@ -63,7 +63,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="section relative overflow-hidden" ref={heroRef}>
+    <section id="home" className="section relative overflow-hidden pt-40" ref={heroRef}>
       {/* 3D Animated background */}
       <AnimatedBackground />
       
@@ -95,7 +95,7 @@ const Hero = () => {
             {/* Glowing border */}
             <div className="absolute inset-0 -m-1 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-sm"></div>
             
-            <span ref={nameRef} className="padd-bottom gradient-text relative z-10">Hemant Arya Panwar</span>
+            <span ref={nameRef} className="padd-bottom gradient-text relative z-10">Abhay Chaudhary</span>
           </motion.h1>
           
           <motion.h2 
@@ -109,7 +109,7 @@ const Hero = () => {
                 'Software Developer',
                 'Frontend Engineer',
                 'Problem Solver',
-                'AI/ML Enthusiast',
+                'Flutter Developer',
                 'Full Stack Developer'
               ]}
               className="text-blue-400"

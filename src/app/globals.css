@@ -187,21 +187,21 @@ a {
   animation-delay: 0.5s;
 }
 .padd{
-  padding: 5px;
+  padding: 8px;
 }
 
 .padd-bottom{
-  padding-bottom: 10px;
+  padding-bottom: 16px;
 }
 
 .padd-top{
-  padding-top: 10px;
+  padding-top: 16px;
 }
 .padd-left{
-  padding-left: 10px !important;
+  padding-left: 16px !important;
 }
 .padd-right{
-  padding-right: 10px !important;
+  padding-right: 16px !important;
 } 
 
 

@@ -9,16 +9,16 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [experience, setExperience] = useState({
     startYear: 2021,
-    currentYear: 2023, // Default value for server rendering
-    yearsOfExperience: 2 // Default value for server rendering
+    currentYear: 2022, // Default value for server rendering
+    yearsOfExperience: 2.5 // Default value for server rendering
   });
 
   useEffect(() => {
     // Update experience data on the client side
     setExperience({
-      startYear: 2023,
+      startYear: 2022,
       currentYear: new Date().getFullYear(),
-      yearsOfExperience: new Date().getFullYear() - 2023
+      yearsOfExperience: new Date().getFullYear() - 2022
     });
   }, []);
 
@@ -47,26 +47,26 @@ const About = () => {
   // Work experience data
   const workExperiences = [
     {
-      company: "Deloitte",
+      company: "Infinitybox",
       position: "Software Developer",
-      period: `Feb 2024 - Present`,
-      description: "Developing and maintaining user-facing features for web applications. Collaborating closely with UI/UX designers and backend developers to implement front-end solutions that meet business requirements and design specifications."
+      period: `June 2023 - Present`,
+      description: "Developing and maintaining user-facing features for web and mobile applications. Collaborating closely with UI/UX designers and backend developers to implement front-end solutions that meet business requirements and design specifications."
     }
   ];
 
   // Internship data
   const internships = [
     {
-      company: "ClarityCuts",
+      company: "Infinitybox",
       position: "Software Engineering Intern",
-      period: "July 2023 - Jan 2024",
-      description: "Developed and maintained web applications using java, Node.js, Express, React.js, MongoDB, AWS, and CI/CD deployment pipelines."
+      period: "Jan 2023 - May 2023",
+      description: "Delivery partner app for drivers using Flutter, Firebase, Node.js, used geolocation for Accurate and  optimised routes"
     },
     {
-      company: "Curer",
+      company: "AI-Bharata",
       position: "Frontend Development Intern",
-      period: "Jan 2022 - June 2022",
-      description: "Designed and integrated offline flows for doctor appointments using Rest API. Worked with Angular, Node.js, MongoDB, Agora, Firebase"
+      period: "Jan 2022 - August 2022",
+      description: "Crypto exchange app for buying and selling crypto using Flutter, Firebase, Node.js, Deeplinking"
     }
   ];
 
@@ -94,8 +94,8 @@ const About = () => {
               <div className="absolute inset-2 bg-secondary/80 rounded-xl z-[5] overflow-hidden p-1">
                 {/* Profile image */}
                 <Image 
-                  src="/images/profile-image.jpeg" 
-                  alt="Hemant Arya Panwar in a snowy setting"
+                  src="/images/proPic.jpeg" 
+                  alt="Abhay Chaudhary in a snowy setting"
                   width={800}
                   height={1000}
                   style={{ objectFit: 'cover', objectPosition: 'center', width: '100%', height: '100%' }}

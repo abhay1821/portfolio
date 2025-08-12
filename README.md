@@ -35,4 +35,4 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 - Edit component files in `src/components/` to update content
 - Modify colors in `src/app/globals.css`
 
-Built by [Hemant Arya Panwar](https://github.com/hemantaryapanwar)
+Built by [Abhay Chaudhary](https://github.com/abhay1821)

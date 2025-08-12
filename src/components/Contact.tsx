@@ -12,7 +12,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   const [submitError, setSubmitError] = useState('');
 
   const ref = useRef<HTMLDivElement>(null);
@@ -25,28 +25,8 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Create the mailto URL with form data
-    const mailtoUrl = `mailto:hemantaryapanwar@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
-    
-    // Only run on client side
-    if (typeof window !== 'undefined') {
-      // Open the user's email client
-      window.open(mailtoUrl, '_blank');
-    }
-    
-    // Simulate form submission completion
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
-    }, 1500);
+    const mailtoUrl = `mailto:chaudharyabhay111@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    window.location.href = mailtoUrl;
   };
 
   const containerVariants = {
@@ -126,8 +106,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-text-secondary mb-2">Email</p>
-                      <a href="mailto:hemantaryapanwar@gmail.com" className="text-lg font-medium hover:text-primary transition-colors duration-300">
-                        hemantaryapanwar@gmail.com
+                      <a href="mailto:chaudharyabhay111@gmail.com" className="text-lg font-medium hover:text-primary transition-colors duration-300">
+                        chaudharyabhay111@gmail.com
                       </a>
                     </div>
                   </div>
@@ -141,7 +121,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-text-secondary mb-2">Location</p>
-                      <p className="text-lg font-medium">Gurgaon, India</p>
+                      <p className="text-lg font-medium">Bengaluru, India</p>
                     </div>
                   </div>
                 </div>
@@ -150,7 +130,7 @@ const Contact = () => {
                   <p className="text-sm text-text-secondary mb-4 padd-left">Connect with me</p>
                   <div className="flex space-x-4">
                     <a 
-                      href="https://github.com/hemantaryapanwar" 
+                      href="https://github.com/abhay1821" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-secondary/30 flex items-center justify-center text-text-secondary hover:text-primary hover:bg-secondary/50 transition-all duration-300"
@@ -161,7 +141,7 @@ const Contact = () => {
                       </svg>
                     </a>
                     <a 
-                      href="https://www.linkedin.com/in/hemant-arya-panwar/" 
+                      href="https://www.linkedin.com/in/abhay1821/" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-secondary/30 flex items-center justify-center text-text-secondary hover:text-primary hover:bg-secondary/50 transition-all duration-300"
@@ -172,7 +152,7 @@ const Contact = () => {
                       </svg>
                     </a>
                     <a 
-                      href="https://x.com/Hemantarya545" 
+                      href="https://x.com/AbhayChaudhary" 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-secondary/30 flex items-center justify-center text-text-secondary hover:text-primary hover:bg-secondary/50 transition-all duration-300"
@@ -193,18 +173,19 @@ const Contact = () => {
               variants={containerVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="lg:col-span-3 bg-secondary/10 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-accent/10 shadow-xl relative overflow-hidden group flex flex-col h-full"
+              className="lg:col-span-3 bg-secondary/10 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-accent/10 shadow-xl relative overflow-hidden group flex flex-col h-full"
             >
               {/* Background gradient effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 z-0"></div>
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-xl z-0"></div>
               
               {/* Decorative elements */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 border border-primary/10 rounded-full z-0"></div>
-              <div className="absolute -bottom-20 -left-20 w-40 h-40 border border-accent/10 rounded-full z-0"></div>
+              <div className="absolute -top-24 -right-24 w-48 h-48 border-2 border-primary/20 rounded-full z-0 opacity-60"></div>
+              <div className="absolute -bottom-24 -left-24 w-48 h-48 border-2 border-accent/20 rounded-full z-0 opacity-60"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-primary/10 rounded-full z-0 opacity-30"></div>
               
               <div className="relative z-10 flex-1 flex flex-col">
-                <motion.h3 variants={itemVariants} className="text-xl md:text-2xl font-bold mb-6 text-center">
+                <motion.h3 variants={itemVariants} className="text-2xl md:text-3xl font-bold mb-8 text-center">
                   Send me a <span className="text-blue-500">message</span>
                 </motion.h3>
 
@@ -212,7 +193,7 @@ const Contact = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-primary/10 border border-primary/20 text-text-primary p-6 rounded-lg mb-8"
+                    className="bg-primary/10 border-2 border-primary/30 text-text-primary p-8 rounded-2xl mb-8 backdrop-blur-sm"
                   >
                     <div className="flex items-center">
                       <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4">
@@ -226,7 +207,7 @@ const Contact = () => {
                 )}
 
                 {submitError && (
-                  <div className="bg-red-500/10 border border-red-500/20 text-red-500 p-6 rounded-lg mb-8">
+                  <div className="bg-red-500/10 border-2 border-red-500/30 text-red-500 p-8 rounded-2xl mb-8 backdrop-blur-sm">
                     <div className="flex items-center">
                       <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
@@ -238,10 +219,10 @@ const Contact = () => {
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-8 flex-grow flex flex-col">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 padd-left padd-right">
+                <form onSubmit={handleSubmit} className="space-y-10 flex-grow flex flex-col">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 padd-left padd-right">
                     <motion.div variants={itemVariants}>
-                      <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-3">Your Name</label>
+                      <label htmlFor="name" className="block text-base font-semibold text-text-primary mb-4">Your Name</label>
                       <div className="relative">
                         <input
                           id="name"
@@ -250,14 +231,14 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="John Doe"
-                          className="w-full padd-left padd-right bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
+                          className="w-full padd-left padd-right py-4 bg-background/60 rounded-2xl border-2 border-accent/20 focus:border-primary/50 focus:ring-4 focus:ring-primary/20 transition-all duration-300 outline-none text-base hover:border-accent/30"
                           required
                         />
                       </div>
                     </motion.div>
 
                     <motion.div variants={itemVariants}>
-                      <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-3">Your Email</label>
+                      <label htmlFor="email" className="block text-base font-semibold text-text-primary mb-4">Your Email</label>
                       <div className="relative">
                         <input
                           id="email"
@@ -266,7 +247,7 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="john@example.com"
-                          className="w-full padd-left padd-right bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
+                          className="w-full padd-left padd-right py-4 bg-background/60 rounded-2xl border-2 border-accent/20 focus:border-primary/50 focus:ring-4 focus:ring-primary/20 transition-all duration-300 outline-none text-base hover:border-accent/30"
                           required
                         />
                       </div>
@@ -274,7 +255,7 @@ const Contact = () => {
                   </div>
 
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="subject" className="block text-sm font-medium text-text-secondary padd-left padd-right mb-3">Subject</label>
+                    <label htmlFor="subject" className="block text-base font-semibold text-text-primary padd-left padd-right mb-4" style={{paddingTop: '5px'}}>Subject</label>
                     <div className="relative padd-left padd-right">
                       <input
                         id="subject"
@@ -283,14 +264,14 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="How can I help you?"
-                        className="w-full padd-left padd-right bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none text-base"
+                        className="w-full padd-left padd-right py-4 bg-background/60 rounded-2xl border-2 border-accent/20 focus:border-primary/50 focus:ring-4 focus:ring-primary/20 transition-all duration-300 outline-none text-base hover:border-accent/30"
                         required
                       />
                     </div>
                   </motion.div>
 
                   <motion.div variants={itemVariants}>
-                    <label htmlFor="message" className="block text-sm font-medium text-text-secondary padd-left mb-3">Message</label>
+                    <label htmlFor="message" className="block text-base font-semibold text-text-primary padd-left "style={{paddingTop: '5px'}}>Message</label>
                     <div className="relative padd-left padd-right">
                       <textarea
                         id="message"
@@ -299,20 +280,20 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="Your message here..."
                         rows={5}
-                        className="w-full padd-left padd-right bg-background/50 rounded-xl border border-accent/20 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 outline-none resize-none text-base"
+                        className="w-full padd-left padd-right py-4 bg-background/60 rounded-2xl border-2 border-accent/20 focus:border-primary/50 focus:ring-4 focus:ring-primary/20 transition-all duration-300 outline-none resize-none text-base hover:border-accent/30"
                         required
                       ></textarea>
                     </div>
                   </motion.div>
 
-                  <motion.div variants={itemVariants} className="pt-6">
+                  <motion.div variants={itemVariants} className="pt-8">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`w-full py-4 px-6 rounded-xl font-medium text-base transition-all duration-300 relative overflow-hidden ${
+                      className={`w-full py-5 px-8 rounded-2xl font-semibold text-lg transition-all duration-300 relative overflow-hidden ${
                         isSubmitting
                           ? 'bg-primary/70 cursor-not-allowed'
-                          : 'bg-primary hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20'
+                          : 'bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02]'
                       }`}
                     >
                       <span className="relative z-10 flex items-center justify-center">
@@ -326,10 +307,13 @@ const Contact = () => {
                           </>
                         ) : (
                           <>
-                            Send Message
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            Send Message &nbsp;
+
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
+
+                            
                           </>
                         )}
                       </span>

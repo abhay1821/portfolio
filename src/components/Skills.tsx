@@ -7,26 +7,20 @@ import Image from 'next/image';
 const skills = [
   { name: 'HTML/CSS', level: 90 },
   { name: 'JavaScript', level: 92 },
-  { name: 'React', level: 88 },
-  { name: 'Angular', level: 85 },
-  { name: 'TypeScript', level: 80 },
-  { name: 'Python', level: 85 },
-  { name: 'C++', level: 82 },
-  { name: 'WebRTC', level: 78 },
+  { name: 'React', level: 95 },
+  { name: 'TypeScript', level: 90 },
+  { name: 'Flutter', level: 95 },
+  { name: 'AWS', level: 80 },
+  { name: 'Firebase', level: 95 },
+  { name: 'C++', level: 95 },
 ];
 
 const technologies = [
   { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
-  { 
-    name: 'WebRTC', 
-    icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDI4OGQxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDJhMTAgMTAgMCAwIDEgMTAgMTBjMCA1LjUyLTQuNDggMTAtMTAgMTBzLTEwLTQuNDgtMTAtMTBjMC01LjUyIDQuNDgtMTAgMTAtMTB6Ij48L3BhdGg+PHBhdGggZD0iTTggMTJoOCI+PC9wYXRoPjxwYXRoIGQ9Ik0xMiA4djgiPjwvcGF0aD48cGF0aCBkPSJNOCA4bDggOCI+PC9wYXRoPjxwYXRoIGQ9Ik0xNiA4bC04IDgiPjwvcGF0aD48L3N2Zz4=' 
-  },
   { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
   { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
   { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
   { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
   { name: 'Redux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg' },
   { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
@@ -39,6 +33,9 @@ const technologies = [
   { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   { name: 'Jira', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg' },
   { name: 'Notion', icon: '/images/Notion_icon.png' },
+  { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+  { name: 'AWS', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
+  { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
 ];
 
 // Simple array for the grid display
@@ -216,6 +213,7 @@ const Skills = () => {
                     key={tech}
                     variants={itemVariants}
                     className="bg-secondary/30 backdrop-blur-sm px-4 py-3 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 text-center"
+                    style={{ padding: '4px' }}
                   >
                     <span className="text-text-secondary">{tech}</span>
                   </motion.div>
