@@ -10,10 +10,9 @@ const Contact = () => {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const [submitError, setSubmitError] = useState('');
+  const [isSubmitting] = useState(false);
+  const [submitSuccess] = useState(false);
+  const [submitError] = useState('');
 
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
